@@ -5,6 +5,7 @@ import axios from "axios";
 import { showSuccessMessage, showErrorMessage } from "../helpers/alerts";
 import { API } from "../config";
 import { isAuth } from "../helpers/auth";
+import { postRegister } from "./auth";
 
 const Register = () => {
   const [state, setState] = useState({
@@ -64,11 +65,12 @@ const Register = () => {
       loadedCategories.map((c, i) => (
         <li className="list-unstyled" key={c._id}>
           <input
+            name="checkbox"
             type="checkbox"
             onChange={handleToggle(c._id)}
             className="mr-2"
           />
-          <label className="form-check-label">{c.name}</label>
+          <label className="checkbox form-check-label">{c.name}</label>
         </li>
       ))
     );
@@ -94,12 +96,7 @@ const Register = () => {
     });
     setState({ ...state, buttonText: "Registering" });
     try {
-      const response = await axios.post(`${API}/register`, {
-        name,
-        email,
-        password,
-        categories,
-      });
+      const response = await postRegister(name, email, password, categories);
       console.log(response);
       setState({
         ...state,
@@ -156,6 +153,7 @@ const Register = () => {
           className="form-control"
           placeholder="Type your name"
           required
+          name="name"
         />
       </div>
       <div className="form-group">
@@ -166,6 +164,7 @@ const Register = () => {
           className="form-control"
           placeholder="Type your email"
           required
+          name="email"
         />
       </div>
       <div className="form-group">
@@ -176,6 +175,7 @@ const Register = () => {
           className="form-control"
           placeholder="Type your password"
           required
+          name="password"
         />
       </div>
 
@@ -187,7 +187,9 @@ const Register = () => {
       </div>
 
       <div className="form-group">
-        <button className="btn btn-outline-warning">{buttonText}</button>
+        <button name="submit" className="btn btn-outline-warning">
+          {buttonText}
+        </button>
       </div>
     </form>
   );

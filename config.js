@@ -1,5 +1,11 @@
-import getConfig from 'next/config';
-const { publicRuntimeConfig } = getConfig();
+// import getConfig from 'next/config';
+// const { publicRuntimeConfig } = getConfig();
+
+import { setConfig } from "next/config";
+import { publicRuntimeConfig } from "./next.config";
+
+// Make sure you can use "publicRuntimeConfig" within tests.
+setConfig({ publicRuntimeConfig });
 
 export const API = publicRuntimeConfig.API;
 export const APP_NAME = publicRuntimeConfig.APP_NAME;

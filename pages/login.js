@@ -66,6 +66,7 @@ const Login = () => {
           className="form-control"
           placeholder="Type your email"
           required
+          name="email"
         />
       </div>
       <div className="form-group">
@@ -76,10 +77,13 @@ const Login = () => {
           className="form-control"
           placeholder="Type your password"
           required
+          name="password"
         />
       </div>
       <div className="form-group">
-        <button className="btn btn-outline-warning">{buttonText}</button>
+        <button name="submit" className="btn btn-outline-warning">
+          {buttonText}
+        </button>
       </div>
     </form>
   );
