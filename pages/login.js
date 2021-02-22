@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setState({ ...state, buttonText: "Logging in" });
     try {
       const response = await axios.post(`${API}/login`, {

@@ -1,14 +1,14 @@
-import * as React from "react";
-import { shallow } from "enzyme";
-import Home from "../pages/index";
+// import * as React from "react";
+// import { shallow } from "enzyme";
+// import Home from "../index";
 
-describe("Pages", () => {
-  describe("Index", () => {
-    it("should render without throwing an error", function () {
-      expect(1 + 2).toEqual(3);
-    });
-  });
-});
+// describe("Pages", () => {
+//   describe("Index", () => {
+//     it("should render without throwing an error", function () {
+//       expect(1 + 2).toEqual(3);
+//     });
+//   });
+// });
 
 // test("App is mounted", () => {
 //   const wrapper = shallow(<Home />);
